@@ -2,7 +2,7 @@
 
 $login= $_POST["login"];
 $email= $_POST["email"];
-$pasword= $_POST["password"];
+$password= $_POST["password"];
 $password_check= $_POST["check"];
 
 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
