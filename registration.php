@@ -1,18 +1,25 @@
 <?php
+require('mysqlconnect.php');
 
-$login= $_POST["login"];
-$email= $_POST["email"];
-$password= $_POST["password"];
-$password_check= $_POST["check"];
+if (isset($_REQUEST['username'])){
 
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  if ($password=$check){
-  $sql = "INSERT INTO users (username, email,password)
-  VALUES ('login','email','password')";
+ $username = stripslashes($_REQUEST['username']);
 
-  echo "Registred succesfully";
-}} else {
-echo "Error";
-}
-
- ?>
+ $username = mysqli_real_escape_string($con,$username);
+ $email = stripslashes($_REQUEST['email']);
+ $email = mysqli_real_escape_string($con,$email);
+ $password = stripslashes($_REQUEST['password']);
+ $password = mysqli_real_escape_string($con,$password);
+ $trn_date = date("Y-m-d H:i:s");
+        $query = "INSERT into `users` (username, password, email, trn_date)
+VALUES ('$username', '".md5($password)."', '$email', '$trn_date')";
+        $result = mysqli_query($con,$query);
+        if($result){
+            echo "<div class='form'>
+<h3>You are registered successfully.</h3>
+<br/>Click here to <a href='login.php'>Login</a></div>";
+        }
+    }else{
+      header ("Location: registration.html");
+    }
+      ?>
