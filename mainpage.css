@@ -1,0 +1,58 @@
+body {
+  height: 100%;
+  
+  background-image: url(https://img4.goodfon.com/original/3840x2160/c/6a/death-stranding-kojima-productions-sony-hideo-kojima-norman.jpg);
+  
+
+  background-repeat: no-repeat;
+  background-size: cover;
+opacity: 0.9;
+}
+
+.menu {
+width: 100%;
+margin: 0px;
+border: 0px;
+color: white;
+background-color:black;
+
+}
+#wiki:hover {
+color: black;
+  background-color: white;
+}
+#help:hover {
+color: black;
+  background-color: white;
+}
+#support:hover {
+color: black;
+  background-color: white;
+}
+td{
+  padding-left:  100px;
+  padding-right: 100px;
+
+}
+#login{
+  background-color:  red;
+  position: absolute;
+  right:0;
+  height: auto;
+}
+
+#tablegame{
+
+
+}
+.mainimg{
+  display: inline-block;
+  height: 200px;
+
+}
+.main{
+  display: inline-block;
+  background-color: grey;
+  color: white;
+  width:  70%;
+}
