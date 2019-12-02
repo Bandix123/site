@@ -9,7 +9,7 @@
   	<h2>Register</h2>
   </div>
 
-  <form method="post" action="register.php">
+  <form method="post" action="registration.php">
   	<?php include('errors.php'); ?>
   	<div>
   	  <label>Username</label>
