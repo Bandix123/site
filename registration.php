@@ -1,25 +1,36 @@
-<?php
-require('mysqlconnect.php');
+<?php include('server.php') ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+  <div>
+  	<h2>Register</h2>
+  </div>
 
-if (isset($_REQUEST['username'])){
-
- $username = stripslashes($_REQUEST['username']);
-
- $username = mysqli_real_escape_string($con,$username);
- $email = stripslashes($_REQUEST['email']);
- $email = mysqli_real_escape_string($con,$email);
- $password = stripslashes($_REQUEST['password']);
- $password = mysqli_real_escape_string($con,$password);
- $trn_date = date("Y-m-d H:i:s");
-       $query = "INSERT into `users` (user_name, user_pass, user_email, user_date)
-VALUES ('$username', '".md5($password)."', '$email', '$trn_date')";
-        $result = mysqli_query($con,$query);
-        if($result){
-            echo "<div class='form'>
-<h3>You are registered successfully.</h3>
-<br/>Click here to <a href='login.php'>Login</a></div>";
-        }
-    }else{
-      header ("Location: registration.html");
-    }
-      ?>
+  <form method="post" action="register.php">
+  	<?php include('errors.php'); ?>
+  	<div>
+  	  <label>Username</label>
+  	  <input type="text" name="username" value="<?php echo $username; ?>">
+  	</div>
+  	<div>
+  	  <label>Email</label>
+  	  <input type="email" name="email" value="<?php echo $email; ?>">
+  	</div>
+  	<div>
+  	  <label>Password</label>
+  	  <input type="password" name="password_1">
+  	</div>
+  	<div>
+  	  <label>Confirm password</label>
+  	  <input type="password" name="password_2">
+  	</div>
+  	<div>
+  	  <button type="submit" class="btn" name="reg_user">Register</button>
+  	</div>
+  	<p>Already a member? <a href="login.php">Sign in</a>	</p>
+  </form>
+</body>
+</html>
