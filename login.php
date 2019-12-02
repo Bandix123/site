@@ -1,29 +1,29 @@
-<?php
-require('mysqlconnect.php');
-session_start();
+<?php include('server.php') ?>
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div>
+  	<h2>Login</h2>
+  </div>
 
-if (isset($_POST['username'])){
-        
- $username = stripslashes($_REQUEST['username']);
-
- $username = mysqli_real_escape_string($con,$username);
- $password = stripslashes($_REQUEST['password']);
- $password = mysqli_real_escape_string($con,$password);
- 
-        $query = "SELECT * FROM `users` WHERE username='$username'
-and password='".md5($password).
- $result = mysqli_query($con,$query) or die(mysql_error());
- $rows = mysqli_num_rows($result);
-        if($rows==1){
-     $_SESSION['username'] = $username;
-          
-     header("Location: mainpage.html");
-         }else{
- echo "<div class='form'>
-<h3>Username/password is incorrect.</h3>
-<br/>Click here to <a href='login.html'>Login</a></div>";
- }
-}else{
-  header ("Location: login.html");
-}
-?>
+  <form method="post" action="login.php">
+  	<?php include('errors.php'); ?>
+  	<div>
+  		<label>Username</label>
+  		<input type="text" name="username" >
+  	</div>
+  	<div>
+  		<label>Password</label>
+  		<input type="password" name="password">
+  	</div>
+  	<div>
+  		<button type="submit" class="btn" name="login_user">Login</button>
+  	</div>
+  	<p>Not yet a member? <a href="register.php">Sign up</a></p>
+  </form>
+</body>
+</html>
