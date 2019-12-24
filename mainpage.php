@@ -1,3 +1,5 @@
+<?php include('server.php') ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +18,7 @@
   <tr>
     <td align="left" id="wiki">  <a href="wiki.html"><p> Wiki </p>  </a></td>
     <td align="center" id="help"> <a href="forum.php"> <p>help forum / find your server </p> </a></td>
-    <td align="right" id="support"> <a href="support.html"> <p>support</p>  </a></td>
+    <td align="right" id="support"> <a href="mainpage.php"> <p>Main</p>  </a></td>
   </tr>
 </table>
 </div>
@@ -56,7 +58,42 @@
   <td>Engine</td> <td>Decima</td>
 </tr>
 <tr>
-  <td rowspan="2"> Rate the game</td>
+  <td> Rate the game</td>
+  <td>  <form action="mainpage.php" method="post">
+
+   <input type="radio" name="rate" value="1" >
+   <input type="radio" name="rate" value="2" >
+   <input type="radio" name="rate" value="3" >
+   <input type="radio" name="rate" value="4" >
+   <input type="submit" name="rating">
+   <?php
+   session_start();
+   $i=0; $k=0;
+   $conn = mysqli_connect("localhost", "bondarenko", "Sch00lS@ck3", "test");
+   // Check connection
+   if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+   }
+   $sql = "SELECT id,number FROM rating";
+   $result = $conn->query($sql);
+   if ($result->num_rows > 0) { $i = 1;
+   // output data of each row
+
+
+   while($row = $result->fetch_assoc()) {
+ $i++;
+ $k= $k + $row["number"];
+
+   }
+   } else { echo "0 results"; }
+
+ $rate = $k/$i;
+ echo round($rate,2);
+   $conn->close();
+   ?>
+
+    </form>
+</td>
 </tr>
 <tr>
 

@@ -1,18 +1,33 @@
+#all{
+  background-color: white;
+  color: black;
+  opacity: 0.9;
+}
 body {
   height: 100%;
-   background-image: url(https://img4.goodfon.com/original/3840x2160/c/6a/death-stranding-kojima-productions-sony-hideo-kojima-norman.jpg);
-   background-repeat: no-repeat;
+  /* The image used */
+  background-image: url(https://img4.goodfon.com/original/3840x2160/c/6a/death-stranding-kojima-productions-sony-hideo-kojima-norman.jpg);
+  /* Full height */
+
+  /* Center and scale the image nicely */
+
+  background-repeat: no-repeat;
   background-size: cover;
-opacity: 0.9;
+
 }
 
-.menu {
+#search {
 width: 100%;
 margin: 0px;
 border: 0px;
 color: white;
 background-color:black;
 
+}
+#wiki{
+  color:white;
+  background-color: black;
+  text-decoration: none;
 }
 #wiki:hover {
 color: black;
@@ -57,5 +72,34 @@ img.mainimg{
   background-color: grey;
   color: white;
   width:  60%;
+  font-size: 30px;
 }
+.gameplay{
+  display: block;
+  background-color: grey;
+  color: white;
+  width:100%;
 
+}
+.development{
+  display: block;
+  background-color: grey;
+  color: white;
+  width: 100%;
+}
+h1{
+  border-bottom: 3px solid black;
+}
+h2{
+  border-bottom: 3px solid black;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;            /* Footer height */
+}
+a{
+  text-decoration: none;
+  color:white;
+}
