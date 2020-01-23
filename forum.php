@@ -48,45 +48,16 @@
 
     echo "<tr><td>"
     . $row["id"].
-    "</td><td>"
+    "</td><td><a href = 'topic.php?id={$row['id']}'>"
     . $row["topic_title"] .
-      "</td><td>"
+      "</a></td><td>"
     . $row["topic_description"].
     "</td><td>"
     . $row["topic_by"] .
-    "</td>
-    <td> <form method='POST' action='comment.php'>
-    <button type='subbmit' class='btn' name='coment' > coment </button> </form> </td><td>";
-    echo
-    $i++
-;
-echo $row["comment_text"];
-if ($_SESSION['coment'] = $row["id"]){
-
-if ( $rezult ->num_rows > 0) {$j = 1;
-
-  while($row = $rezult->fetch_assoc()){
-echo "</td><td>"; echo "</td><td>"; echo "</td><td>"; echo " </td><td>";
-echo " ";
-echo $row["comment_text"];
-echo " ";
-echo "</td> ";
-echo "</tr> <tr><td> ";
+    "</td></tr>";
   }
-}
-}
 
-
-echo          "</td></tr>"
-    ;
-
-
-    }
-    echo "</table>";
     } else { echo "0 results"; }
-$i= $i-1;
-$_SESSION['topic'] = $i;
-
     $conn->close();
     ?>
 
